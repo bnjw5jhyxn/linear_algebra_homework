@@ -1,0 +1,149 @@
+\def\zero{{\sl 0}}
+\def\real{{\sl R}}
+\centerline{Steve Hsu\hfill homework 1}
+\medskip\goodbreak
+\item{1.2.9.} Corollary 1 of Theorem 1.1
+
+We want to show that $\zero$ is unique.
+In other words, if $\zero$ and $\zero'$ are both additive identities
+in a vector space $V$, then they are equal.
+
+Suppose that a $V$ has two additive identities, $\zero$ and $\zero'$.
+We want to show that $\zero = \zero'$.
+First, let $x \in V$ be an arbitrary member of the vector space.
+Since $\zero$ and $\zero'$ are additive identities,
+$x + \zero = x = x + \zero'$.
+Addition is commutative by (VS 1), so $\zero + x = \zero' + x$.
+By the cancellation theorem, we can cancel $x$ from both sides,
+giving $\zero = \zero'$, as desired.
+
+\item{} Corollary 2 of Theorem 1.1
+
+We want to show that each element of $V$ has exactly one additive inverse.
+In other words, if $y$ and $y'$ are additive inverses of some $x \in V$,
+then $y = y'$.
+
+Let $x \in V$ be arbitrary.
+Let $y, y' \in V$ be additive inverses of $x$.
+We know that these exist by (VS 4).
+Since $y$ and $y'$ are additive inverses of $x$,
+$x + y = \zero = x + y'$,
+Addition is commutative by (VS 1), so $y + x = y' + x$.
+By the cancellation theorem, we can cancel $x$ from both sides,
+giving $y = y'$, as desired.
+
+\item{} Theorem 1.2(c)
+
+We want to show that $a\zero = \zero$ for all $a \in F$.
+
+Let $a \in F$ be arbitrary.
+By (VS 7), $a\zero + a\zero = a(\zero + \zero)$.
+Since $\zero$ is the additive identity by (VS 3),
+$a(\zero + \zero) = a\zero = a\zero + \zero$.
+Since addition is commutative by (VS 1), $a\zero + \zero = \zero + a\zero$.
+By applying the cancellation theorem to $a\zero + a\zero = \zero + a\zero$,
+we have $a\zero = \zero$, as desired.
+\medskip\goodbreak
+\item{1.2.13.}
+
+$V$ is not a vector space over $\real$
+because it does not satisfy (VS 8).
+
+For example, $(1 + 1)(1,2) = 2(1,2) = (2,2)$,
+but $1(1,2) + 1(1,2) = (1,2) + (1,2) = (2,4)$.
+\medskip\goodbreak
+\item{1.3.8.} a.
+
+By Theorem 1.3, it suffices to show that
+$W_1$ contains $\zero$, it is closed under addition,
+and it is closed under scalar multiplication.
+
+Notice that a vector $a \in \real^3$ is in $W_1$ if and only if
+it can be written in the form $x(1,3,-1)$ for some $x \in \real$.
+It is now clear that $\zero = 0(1,3,-1) \in W_1$.
+$W_1$ is closed under addition since
+$x(1,3,-1) + y(1,3,-1) = (x + y)(1,3,-1)$ by (VS 8) in $\real^3$
+and $W_1$ is closed under scalar multiplication since
+$(c)x(1,3,-1) = (cx)(1,3,-1)$ by (VS 6) in $\real^3$.
+
+\item{} e.
+
+$W_5$ does not contain $\zero$ since $0 + 2(0) - 3(0) \ne 1$.
+\medskip\goodbreak
+\item{1.3.18.} forward direction
+
+Assume that $W \subseteq V$ is a subspace of $V$.
+We want to show that $\zero \in W$ and
+$ax + y \in W$ for all $a \in F$ and $x,y \in W$.
+
+By Theorem 1.3, since $W$ is a subspace of $V$,
+$W$ contains $\zero$ and is closed under addition and scalar multiplication.
+
+$\zero \in W$ by Theorem 1.3.
+
+Let $a \in F$ and $x,y \in W$ be arbitrary.
+Since $W$ is closed under scalar multiplication, $ax \in W$.
+Since $W$ is closed under addition, $ax + y \in W$, as desired.
+
+\item{} backward direction
+
+Assume that $W \subseteq V$ contains $\zero$ and that
+$ax + y \in W$ for all $a \in F$ and $x,y \in W$.
+We want to show that $W$ is a subspace of $V$.
+
+By Theorem 1.3, we need to show that $\zero \in W$
+and that $W$ is closed under addition and scalar multiplication.
+
+We assumed that $\zero \in W$.
+
+Let $x,y \in W$ be arbitrary.
+We want to show that $x + y \in W$.
+
+By our assumption, $1x + y \in W$.
+By (VS 5) in $V$, $1x = x$, giving $x + y \in W$, as desired.
+
+Let $a \in F$ and $x \in W$ be arbitrary.
+We want to show that $ax \in W$.
+
+By our assumption, $ax + \zero \in W$.
+Since $ax + \zero = ax$ by (VS 3) in $V$,
+$ax \in W$, as desired.
+\medskip\goodbreak
+\item{1.3.19.} forward direction
+
+Assume that $W_1,W_2 \subseteq V$ are subspaces of $V$
+such that $W_1 \cup W_2$ is also a subspace of $V$.
+We want to show that $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$.
+
+Assume for contradiction that
+$W_1 \not\subseteq W_2$ and $W_2 \not\subseteq W_1$.
+Then there is an $x \in W_1$ that is not in $W_2$
+and a $y \in W_2$ that is not in $W_1$.
+
+Since $W_1 \cup W_2$ is a subspace of $V$, $x + y \in W_1 \cup W_2$.
+We now have two cases: first, $x + y \in W_1$; and second, $x + y \in W_2$.
+
+In the first case, since $W_1$ is a subspace of $V$
+and $x \in W_1$, $x$ has an additive inverse $u$ in $W_1$.
+Then $x + y + u \in W_1$ since $W_1$ is a subspace of $V$.
+This a contradiction because $x + y + u = y + x + u = y + \zero = y$,
+which we assumed is not in $W_1$.
+
+In the second case, by a similar argument, $x \in W_2$,
+which is a contradiction.
+
+\item{} backward direction
+
+Assume that $W_1,W_2 \subseteq V$ are subspaces of $V$
+such that $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$.
+We want to show that $W_1 \cup W_2$ is also a subspace of $V$.
+
+We have two cases: first, $W_1 \subseteq W_2$;
+and second, $W_2 \subseteq W_1$.
+
+In the first case, $W_1 \cup W_2 = W_2$,
+which we assumed is a subspace of $V$.
+
+In the second case, $W_1 \cup W_2 = W_1$,
+which we assumed is a subspace of $V$.
+\bye
