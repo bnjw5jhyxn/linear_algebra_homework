@@ -1,0 +1,153 @@
+\def\vecspan#1{{\rm span}{#1}}
+\def\zero{{\bf 0}}
+\centerline{Steve Hsu\hfill homework 2}
+\item{1.4.4.} a. yes
+
+$x^3 - 3x + 5 = 3(x^3 + 2x^2 - x + 1) - 2(x^3 + 3x^2 - 1)$
+
+\item{1.4.5.} g. yes
+
+$\pmatrix{1&2\cr-3&4\cr} = 3\pmatrix{1&0\cr-1&0\cr} +
+4\pmatrix{0&1\cr0&1\cr} - 2\pmatrix{1&1\cr0&0\cr}$
+
+\item{1.4.12.}
+
+Let $V$ be a vector space over a field $F$ and let $W \subset V$.
+
+For the forward direction, assume that $W$ is a subspace of $V$.
+We want to show that $\vecspan W = W$.
+
+In other words, we want to show that for any finite set of vectors
+$x_1, x_2, \cdots, x_k$ in $W$ and scalars $a_1, a_2, \cdots a_k$ in $F$,
+$a_1 x_1 + a_2 x_2 + \cdots + a_k x_k$ is also in $W$.
+Since $W$ is a subspace of $V$, it is closed under scalar multiplication
+and $a_1 x_1, a_2 x_2, \cdots, a_k x_k$ are all in $W$.
+Since $W$ is also closed under vector addition,
+the sum $a_1 x_1 + a_2 x_2 + \cdots a_k x_k$ is in $W$, as desired.
+
+For the backward direction, assume that $\vecspan W = W$.
+We want to show that $W$ is a subspace of $V$.
+
+First, we will show that $\zero \in W$.
+$W$ must be nonempty, since otherwise $\vecspan W = \{\zero\} \ne W$.
+Let $x$ be an arbitrary vector in $W$.
+Then $0x$ is a linear combination of vectors in $W$, so $\zero \in W$.
+
+Next, we will show that $W$ is closed under vector addition.
+Let $x$ and $y$	be arbitrary vectors in $W$.
+Then $x + y$ is a linear combination of vectors in $W$,
+so $x + y \in W$.
+
+We will show show that $W$ is closed under scalar multiplication.
+Let $x$ be an arbitrary vector in $W$ and $a$ be an arbitrary scalar in
+$F$.
+Then $ax$ is a linear combination of vectors in $W$, so $ax \in W$.
+
+Since $W$ contains $\zero$ and is closed under addition
+and scalar multiplication, $W$ is a subspace of $V$.
+
+\item{1.5.2.} e. linearly dependent
+
+$3(1,-1,2) - 2(1,-2,1) - (1,1,4) = (0,0,0)$
+
+\item{1.5.9.}
+
+Let $u$ and $v$ be distinct vectors in a vector space $V$ over a field $F$.
+
+For the forward direction, assume that $\{u,v\}$ is linearly dependent.
+We want to show that $v$ is a scalar multiple of $u$.
+
+Since $\{u,v\}$ is linearly dependent, there are scalars $a,b \in F$
+such that $au + bv = \zero$.
+Adding the additive inverse of $bv$ to both sides, $au = -bv$.
+Multiplying by the multiplicative inverse of $a$ in $F$, $u = -a^{-1}bv$,
+so $v$ is clearly a scalar multiple of $u$.
+
+For the backward direction, assume without loss of generality that $v$ is
+a scalar multiple of $u$.
+We want to show that the set $\{u,v\}$ is linearly dependent.
+
+Since $v$ is a scalar multiple of $u$, we have $u = av$ for some $a \in F$.
+Adding the additive inverse of $av$ to both sides, $u - av = \zero$,
+so $\{u,v\}$ is linearly dependent.
+
+\item{1.6.3.} a. not a basis
+
+The set can only generate polynomials of the form $ax^2 + bx + c$,
+where $b = -{1 \over 2}a$.
+
+\item{} b. basis
+
+We can write the polynomial $ax^2 + bx + c$ in the form
+${1 \over 4}(-3a + 3b + c)(x^2 + 2x + 1) +
+{1 \over 4}(a - b + c)(x^2 + 3) + {1 \over 2}(3a - b - c)$.
+
+\item{1.6.11.}
+
+We will first show that if $\{u,v\}$ is a basis for a vector space $V$
+and $a$ is a nonzero scalar, then $\{u+v,au\}$ is also a basis for $V$.
+In other words, we will show that $\{u+v,au\}$ spans $V$
+and $\{u+v,au\}$ is linearly independent.
+
+For the first part, assume that $\{u,v\}$ is a basis for $V$
+and therefore spans $V$.
+We want to show that $\{u+v,au\}$ also spans $V$.
+In other words, any vector in $V$
+can be written as a linear combination of $\{u+v,au\}$.
+Let $x$ be an arbitrary element of $V$.
+Since $\{u,v\}$ is a basis for $V$,
+there are scalars $c$ and $d$ such that $cu + dv = x$.
+Notice that $x = cu + dv = d(u + v) + a^{-1}(c - d)au$, so
+$x$ can be written as a linear combination of $u + v$ and $au$.
+
+For the second part, we want to show that if $\{u,v\}$
+is a basis for $V$ and is therefore linearly independent,
+then $\{u+v,au\}$ is linearly independent.
+We will prove this claim by contraposition.
+We want to show that if $\{u+v,au\}$ is linearly dependent,
+then so is $\{u,v\}$.
+Assume that $\{u+v,av\}$ is linearly dependent.
+We want to show that $\{u,v\}$ is linearly dependent.
+Since $\{u+v,av\}$ is linearly dependent,
+there are scalars $c$ and $d$, not both zero,
+such that $c(u + v) + dau = \zero$.
+Rearranging the equation, we have $(c + da)u + cv = \zero$,
+so $u$ and $v$ are linearly dependent.
+
+We now know that if $\{u,v\}$ is a basis for $V$, then
+$\{u+v,au\}$ is linearly independent and spans $V$,
+so $\{u+v,au\}$ is also a basis for $V$.
+
+We also want to show that if $\{u,v\}$ is a basis for $V$
+and $a$ and $b$ are nonzero scalars,
+then $\{au,bv\}$ is also a basis for $V$.
+In other words, we want to show that $\{au,bv\}$ spans $V$
+and $\{au,bv\}$ is linearly independent.
+
+For the first part, assume that $\{u,v\}$ is a basis for $V$
+and therefore spans $V$.
+We want to show that $\{au,bv\}$ also spans $V$.
+In other words, we want to show that any vector in $V$
+can be written as a linear combination of $au$ and $bv$.
+Let $x$ be an arbitrary element of $V$.
+Since $\{u,v\}$ is a basis for $V$,
+there are scalars $c$ and $d$ such that $cu + dv = x$.
+Notice that $x = cu + dv = a^{-1}cau + b^{-1}dbv$,
+so $x$ can be written as a linear combination of $au$ and $bv$.
+
+For the second part we want to show that if $\{u,v\}$
+is a basis for $V$ and is therefore linearly independent,
+then $\{au,bv\}$ is also linearly independent.
+We will prove this claim by contraposition.
+Assume that $\{au,bv\}$ is linearly dependent.
+We want to show that $\{u,v\}$ is also linearly dependent.
+Since $\{au,bv\}$ is linearly dependent,
+there are scalars $c$ and $d$, not both zero,
+such that $cau + dbv = \zero$.
+We immediately have scalars $ca$ and $db$, giving
+$cau + dbv = \zero$, so $\{u,v\}$ is linearly dependent.
+
+We now know that if $\{u,v\}$ is a basis for $V$,
+then $\{au,bv\}$ spans $V$ and is linearly independent,
+so $\{au,bv\}$ is also a basis for $V$.
+\bye
