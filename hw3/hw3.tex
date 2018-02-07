@@ -1,0 +1,186 @@
+\def\zero{{\bf 0}}
+\def\real{{\bf R}}
+\centerline{Steve Hsu\hfill homework 3}
+\item{1.6.} 15.
+
+The basis is a set of matrices $A_{ij}$, where
+$1 \le i,j \le n$ and $i,j$ are not both $n$.
+Each $A_{ij}$ is a matrix with $1$ at entry $(i,j)$.
+If $i = j$, then the matrix has a $-1$ at entry $(n,n)$.
+It has $0$ at every other entry.
+
+The vector space has dimension $n^2 - 1$.
+\bigskip
+\item{} 20.
+
+We want to show that $S$ has at least $n$ elements.
+Let $L$ be a basis for $V$.
+By the definition of dimension, $L$ has exactly $n$ elements.
+Since $L$ is linearly independent and $S$ generates $V$,
+$S$ has at least $n$ elements by the Replacement Theorem.
+
+We want to show that there is a subset of $S$ that is a basis for $V$.
+We start with the empty set.
+As long as the set has less than $n$ elements, we take an element of $S$
+outside the span of this set and add it.
+We will not stop before the set reaches $n$ elements.
+If we do, then $S$, and consequently $V$, will be in the span of
+fewer than $n$ vectors, violating the condition that $S$ has dimension $n$.
+When we reach $n$ vectors, $S$ (and therefore $V$)
+will be in the span of the set.
+If it isn't, we will be able to find more than $n$ linearly independent
+vectors in $V$, violating the condition that $S$ has dimension $n$.
+\bigskip
+\item{} 26.
+
+$f$ must be of the form $f(x) = (x - a)g(x)$,
+where $g \in P_{n - 1}(\real)$.
+This subspace, like $P_{n - 1}(\real)$, has dimension $n$.
+\bigskip
+\item{2.1.} 2.
+
+We want to show that $T(u + cv) = Tu + cTv$.
+Let $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$.
+We have $T(u + cv) = T(u_1 + cv_1, u_2 + cv_2, u_3 + cv_3) =
+(u_1 + cv_1 - u_2 - cv_2, 2u_3 + 2cv_3) =
+(u_1 - u_2, 2u_3) + c(v_1 - v_2, 2v_3) = Tu + cTv$, as desired.
+
+The set $\{(1,-1,0)\}$ is a basis for $N(T)$ and
+$\{(1,0), (0,1)\}$ is a basis for $R(T)$.
+The nullity of $T$ is therefore $1$, and
+the rank of $T$ is $2$.
+Their sum is $1 + 2 = 3$, which is indeed the dimension of the domain of $T$.
+
+Since the set $\{T(1,0,0), T(0,0,1)\}$ generates $\real^2$, $T$ is onto.
+\bigskip
+\item{} 3.
+
+We want to show that $T(u + cv) = Tu + cTv$.
+Let $u = (u_1, u_2)$ and $v = (v_1, v_2)$.
+We have $T(u + cv) = T(u_1 + cv_1, u_2 + cv_2) =
+(u_1 + cv_1 + u_2 + cv_2, 0, 2u_1 + 2cv_1 - u_2 - cv_2) =
+(u_1 + u_2, 0, 2u_1 - u_2) + c(v_1 + v_2, 0, 2v_1 - v_2) =
+Tu + cTv$, as desired.
+
+The empty set is a basis for $N(T)$ and
+$\{(1,0,0),(0,0,1)\}$ is a basis for $R(T)$.
+The nullity of $T$ is $0$ and the rank of $T$ is $2$.
+Their sum is $0 + 2 = 2$, which is the dimension of $T$.
+
+Since the nullity of $T$ is $0$, $T$ is one-to-one.
+\bigskip
+\item{} 9.
+\itemitem{a.} $T(u + v) \ne Tu + Tv$
+
+Let $u = (u_1, u_2)$ and $v = (v_1, v_2)$.
+Then $T(u + v) = (1, u_2 + v_2)$ and
+$Tu + Tv = (2, u_2 + v_2)$.
+\medskip
+\itemitem{b.} $T(cv) \ne cTv$
+
+Let $v = (v_1, v_2)$.
+Then $T(cv) = (cv_1, c^2 v_2^2)$ and
+$cTv = (cv_1, cv_2^2)$.
+\medskip
+\itemitem{c.} $T(cv) \ne cTv$
+
+Let $c = 2$ and $v = ({\pi \over 2}, 0)$.
+Then $T(cv) = (0,0)$ and $cTv = (2,0)$.
+\medskip
+\itemitem{d.} $T(u + v) \ne Tu + Tv$
+
+Let $u = (u_1, u_2)$ and $v = (-u_1, v_2)$.
+Then $T(u + v) = (0, u_2 + v_2)$ and
+$Tu + Tv = (2u_1, u_2 + v_2)$.
+\bigskip
+\item{} 13.
+
+We will prove the claim by contraposition.
+In other words, we will show that if $S$ is linearly dependent,
+then $\{Tv_1, \cdots, Tv_k\}$ will be linearly dependent
+and therefore cannot equal $\{w_1, \cdots, w_k\}$.
+
+Assume that $S$ is linearly dependent.
+Then there are constants $c_1, \cdots, c_k$, not all zero,
+such that $\sum _{i = 1} ^k c_i v_i = \zero$.
+Since $T$ is linear,
+$\zero = T(\sum _{i = 1} ^k c_i v_i) =
+\sum _{i = 1} ^k c_i Tv_i$.
+The set $\{Tv_1, \cdots, Tv_k\}$ is therefore linearly dependent
+and cannot equal $\{w_1, \cdots, w_k\}$.
+\bigskip
+\item{} 15.
+
+To show that $T$ is linear,
+we will show that $T(f + cg) = Tf + cTg$.
+By the properties of integrals,
+$T(f + cg) (x) =
+\int _0 ^x (f + cg) (t) dt =
+\int _0 ^x f(t) dt + \int _0 ^x cg(t) dt =
+Tf(x) + c \int _0 ^x g(t) dt =
+Tf(x) + cTg(x) = (Tf + cTg) (x)$, as desired.
+
+We will show that $T$ is one-to-one.
+It is sufficient to show that the $N(T)$ is a set containing
+only the zero polynomial.
+In other words, we will show that
+if $Tf$ is the zero polynomial, then $f$ is the zero polynomial.
+Assume that $Tf$ is the zero polynomial.
+In other words, $\int _0 ^x f(t) dt = 0$ for all real numbers $x$.
+The only polynomial satisfying this property is the zero polynomial,
+so $f$ must be the zero polynomial, as desired.
+
+To show that $T$ is not onto, we must find a polynomial $f$
+such that $Tg \ne f$ for all polynomials $g$.
+The polynomial $f(x) = 1$ for all real numbers $x$
+is such a polynomial.
+\bigskip
+\item{} 17.
+\itemitem{a.}
+
+Let $\beta = \{v_1, \cdots, v_k\}$ be a basis for $V$.
+Since $S = \{Tv_1, \cdots, Tv_k\}$
+has fewer elements than a basis for $W$, it cannot generate $W$.
+Any element of the range of $T$, however,
+can be written as a linear combination of elements of $S$,
+so $T$ is not onto.
+\medskip
+\itemitem{b.}
+
+Let $\beta = \{v_1 \cdots, v_k\}$ be a basis for $V$.
+Since $S = \{Tv_1, \cdots, Tv_k\}$
+has more elements than a basis for $W$, it must be linearly dependent.
+Then there are constants $c_1, \cdots, c_k$, not all zero,
+such that $\sum _{i = 1} ^k c_i Tv_i = \zero$.
+Since $T$ is linear, we have
+$T(\sum _{i = 1} ^k c_i v_i) = \zero$.
+Since $\beta$ is linearly independent, the sum cannot be $\zero$,
+so we have a nonzero vector mapped to $\zero$ by $T$.
+$T$ is therefore not one-to-one.
+\bigskip
+\item{} 20.
+
+We will first show that $T(V_1)$ is a subspace of $W$.
+In other words, we will show that $T(V_1)$
+contains $\zero$, is closed under addition, and
+is closed under multiplication.
+Since $V_1$ contains $\zero$ and $T\zero = \zero$,
+$T(V_1)$ must also contain $\zero$.
+Let $c$ be an arbitrary element of $F$ and
+let $u$ and $v$ be arbitrary elements of $V_1$.
+Then $u + cv \in V_1$ since $V_1$ is a subspace of $V$,
+and $Tu, T(cv) \in T(V_1)$.
+Therefore, since $T$ is linear, $Tu + cTv = T(u + cv) \in T(V_1)$,
+so $T(V_1)$ is closed under addition and scalar multiplication.
+
+Let $V_2 = \{x \in V : Tx \in W_1\}$.
+We want to show that $V_2$ contains $\zero$
+and is closed under addition and scalar multiplication.
+Since $W_1$ contains $\zero$ and $T\zero = \zero$,
+$V_2$ must also contain $\zero$.
+Let $c$ be an arbitrary element of $F$ and
+let $u$ and $v$ be arbitrary elements of $V_2$.
+Since $W_1$ is a subspace of $W$, $Tu + cTv \in W_1$.
+Since $T$ is linear, $Tu + cTv = T(u + cv)$, so $u + cv \in V_2$.
+Therefore, $V_2$ is closed under addition and scalar multiplication.
+\bye
