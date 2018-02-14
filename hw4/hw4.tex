@@ -1,0 +1,139 @@
+\def\tr#1{{\rm tr}(#1)}
+\centerline{Steve Hsu\hfill homework 4}
+\item{2.2.2.} c.
+
+$[T]_\beta ^\gamma = \pmatrix{2 & 1 & -3\cr}$
+\medskip
+\item{} e.
+
+$[T]_\beta ^\gamma = (a_{ij})$ where
+$$a_{ij} = \cases{
+1&if $i = j$\cr
+0&otherwise\cr
+}$$
+for $1 \le i,j \le n$.
+\medskip
+\item{} g.
+
+$[T]_\beta ^\gamma = \pmatrix{a_1 & a_2 & \cdots & a_n}$ where
+$$a_i = \cases{
+1&if $i = 1$ or $i = n$\cr
+0&otherwise\cr
+}$$
+\bigskip
+\item{2.2.5.} c.
+
+$[T]_\alpha ^\gamma = \pmatrix{1 & 0 & 0 & 1\cr}$
+\medskip
+\item{} g.
+
+$[a]_\gamma = [a]$
+\bigskip
+\item{2.2.8.}
+
+We want to show that $T(x + cy) = Tx + cTy$,
+that is, $[x + cy]_\beta = [x]_\beta + c[y]_\beta$.
+Let $x = a_1 v_1 + \cdots + a_n v_n$
+and $y = b_1 v_1 + \cdots + b_n v_n$,
+where $\beta = \{v_1, \cdots, v_n\}$.
+Then $x + cy = (a_1 + c b_1) v_1 + \cdots + (a_n + c b_n) v_n$,
+so $[x + cy]_\beta = \left[\matrix{
+a_1 + c b_1\cr
+\vdots\cr
+a_n + c b_n\cr
+}\right]$.
+$[x]_\beta = \left[\matrix{
+a_1\cr
+\vdots\cr
+a_n\cr
+}\right]$ and $[y]_\beta = \left[\matrix{
+b_1\cr
+\vdots\cr
+b_n\cr
+}\right]$, so $[x]_\beta + c[y]_\beta = \left[\matrix{
+a_1 + c b_1\cr
+\vdots\cr
+a_n + c b_n\cr
+}\right] = [x + cy]_\beta$, as desired.
+\bigskip
+\item{2.2.10.}
+
+$[T]_\beta = (a_{ij})$ where
+$$a_{ij} = \cases{
+1&if $i = j$ or $i + 1 = j$\cr
+0&otherwise\cr
+}$$
+for $1 \le i,j \le n$.
+\bigskip
+\item{2.3.13.}
+
+By the definition of matrix multiplication,
+$\tr{AB} = \sum _{i = 1} ^n \sum _{j = 1} ^n A_{ij} B_{ji} =
+\sum _{j = 1} ^n \sum _{i = 1} ^n B_{ji} A_{ij} = \tr{BA}$.
+
+By the definition of transpose, $A_{ij} = A_{ji} ^t$.
+In particular, $A_{ii} = A_{ii} ^t$.
+Therefore, $tr A = \sum _{i = 1} ^n A_{ii} = \sum _{i = 1} ^n A_{ii} ^t = \tr {A^t}$.
+\bigskip
+\item{2.4.2.} f.
+
+$$T^{-1} \pmatrix{a & b\cr c & d\cr} = \pmatrix{b & a-b\cr c & d-c\cr}$$
+$$T^{-1}(T\pmatrix{a & b\cr c & d\cr}) = T^{-1} \pmatrix{a+b & a\cr c & c+d\cr} =
+\pmatrix{a & a+b-a\cr c & c+d-c\cr} = \pmatrix{a & b\cr c & d\cr}$$
+$$T(T^{-1} \pmatrix{a & b\cr c & d\cr}) = T\pmatrix{b & a-b\cr c & d-c\cr} =
+\pmatrix{b+a-b & b\cr c & c+d-c\cr} = \pmatrix{a & b\cr c & d\cr}$$
+
+\item{2.4.9.}
+
+Since $AB$ is an invertible matrix,
+$L_{AB}$ must be an invertible linear transformation.
+$L_{AB}$ is therefore a bijection from $F^n$ to $F^n$.
+Since $L_{AB} = L_A L_B$ and $L_{AB}$ is injective,
+$L_B$ must be injective
+(if $L_B x_1 = L_B x_2$, then $L_A L_B x_1 = L_A L_B x_2$,
+and consequently $x_1 = x_2$).
+Since $F^n$ has the same dimension as itself and $L_B$ is linear,
+so $L_B$ must also be surjective by theorem 2.5.
+Since $L_{AB}$ is surjective, $L_A$ must be surjective
+(for all $y$ there is an $x$ such that $L_A L_B x = y$;
+therefore, for all $y$ there is an $(L_B x)$ such that $L_A (L_B x) = y$).
+Since $F^n$ has the same dimension as itself,
+$L_A$ is therefore also injective by theorem 2.5.
+Since $L_A$ and $L_B$ are bijective (and consequently invertible),
+there are linear transformations $L_A ^{-1}$ and $L_B ^{-1}$,
+which have matrix representations $A^{-1}$ and $B^{-1}$ respectively.
+
+Let $A = \pmatrix{1 & 0\cr}$ and $B = \pmatrix{1\cr 0\cr}$.
+Then $AB = \pmatrix{1\cr}$, which is clearly invertible,
+but any matrix left multiplied with $A$ will give all $0$'s
+in the second column, so $A$ has no left inverse.
+\bigskip
+\item{2.4.10.} a.
+
+Since $I_n$ is invertible and $A$ and $B$ are $n \times n$ matrices,
+$A$ and $B$ are invertible.
+\medskip
+\item{} b.
+
+Since $A$ and $B$ are invertible, there are matrices $A^{-1}$ and $B^{-1}$
+such that $A A^{-1} = A^{-1} A = I_n = B B^{-1} = B^{-1} B$.
+Notice that $ABAB = I_n I_n = I_n = AB$.
+Multiplying on the left by $A^{-1}$, we have $BAB = B$,
+and multiplying on the right by $B^{-1}$, we have $BA = I$,
+as desired.
+\medskip
+\item{} c.
+
+Let $V$ be a vector space with dimension $n$
+and let $T$ and $U$ be linear transformations on $V$.
+If $UT$ is invertible, then $U$ and $T$ are both invertible.
+Since the proof for exercise 9 relies on
+relating matrices to linear transformations,
+this proof is almost the same as that in exercise 9.
+
+Let $\beta = \{v_1, \cdots, v_n\}$ be a basis fo $V$.
+If $UT = 1_V$, then $U = T^{-1}$ and $T = U^{-1}$.
+We want to show that $TU = 1_V$.
+The proof looks the same as that for exercise 10b,
+but instead of matrix multiplication, we have function composition.
+\bye
