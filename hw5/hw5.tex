@@ -1,0 +1,211 @@
+\def\real{{\bf R}}
+\def\tr{{\rm tr}}
+\centerline{Steve Hsu\hfill homework 5}
+\item{2.5.2.} b.
+
+$$[Q] _{\beta\prime} ^\beta = \pmatrix{ 4 & 1\cr 2 & 3\cr }$$
+\bigskip
+\item{2.5.3.} d.
+
+$$[Q] _{\beta\prime} ^\beta =
+\pmatrix{ 2 & 1 & 1\cr 3 & -2 & 1\cr -1 & 3 & 1\cr }$$
+\bigskip
+\item{2.5.5.}
+
+$$[T] _{\beta\prime} =
+[Q^{-1}] _\beta ^{\beta\prime} [T] _\beta [Q] _{\beta\prime} ^\beta =
+\pmatrix{ 1/2 & 1/2\cr 1/2 & -1/2\cr}
+\pmatrix{ 0 & 1\cr 0 & 0\cr}
+\pmatrix{ 1 & 1\cr 1 & -1\cr} =
+\pmatrix{ 0 & 1/2\cr 0 & 1/2\cr} \pmatrix{ 1 & 1\cr 1 & -1\cr} =
+\pmatrix{ 1/2 & -1/2\cr 1/2 & -1/2\cr}$$
+\bigskip
+\item{2.5.6.} c.
+
+Let $\gamma$ be the standard ordered basis for $\real ^3$.
+$$[L_A] _\beta = [Q^{-1}] _\gamma ^\beta [L_A] _\gamma [Q] _\beta ^\gamma =
+Q^{-1} A Q = \pmatrix{ 1 & 1 & -1\cr 1 & -1 & 0\cr -1 & 0 & 1\cr}
+\pmatrix{ 1 & 1 & -1\cr 2 & 0 & 1\cr 1 & 1 & 0\cr}
+\pmatrix{ 1 & 1 & 1\cr 1 & 0 & 1\cr 1 & 1 & 2\cr} =
+\pmatrix{ 2 & 2 & 2\cr -2 & -3 & -4\cr 1 & 1 & 2\cr}$$
+\bigskip
+\item{2.5.10.}
+
+Assume that $A$ and $B$ are similar $n \times n$ matrices.
+We have that there is an invertible matrix $Q$ such that $B = Q^{-1} A Q$.
+Let $C = Q^{-1} A$.
+By exercise 13 of section 2.3, we have that $\tr(CQ) = \tr(QC)$.
+Therefore, $\tr(B) = \tr(Q^{-1} A Q) = \tr(CQ) = \tr(QC) = \tr(Q Q^{-1} A) =
+\tr(A)$, as desired.
+\bigskip
+\item{2.6.4.}
+
+We will first show that $\{f_1, f_2, f_3\}$ generates $V^\ast$.
+Let $f \in V^\ast$.
+Then there exist real numbers $a$, $b$, and $c$ such that
+$f(x,y,z) = ax + by + cz$.
+Notice that $({2 \over 5}a - {3 \over 10} b - {1 \over 10} c)f_1(x,y,z) +
+({3 \over 5} a + {3 \over 10} b + {1 \over 10} c)f_2(x,y,z) +
+({1 \over 5} a + {1 \over 10} b - {3 \over 10} c)f_3(x,y,z) =
+ax + by + cz = f(x,y,z)$,
+so there is a linear combination of $\{f_1, f_2, f_3\}$ equal to $f$.
+
+We will now show that $\{f_1, f_2, f_3\}$ is linearly independent.
+Consider the equation $(k_1 f_1 + k_2 f_2 + k_3 f_3)(x,y,z) = 0$.
+In order for the coefficient of $x$ to be $0$,
+we must have that $k_1  = -k_2$.
+In order for the coefficient of $z$ to be $0$,
+we must have that $k_2 = 3k_3$.
+Therefore, any solution of the equation must be of the form
+$(-3k_3 f_1 + 3k_3 f_2 + k_3 f_3)(x,y,z) = 0$.
+Simplifying, we have that $10k_3 y = 0$.
+Therefore, $k_3$ must be $0$, and consequently,
+$k_1$ and $k_2$ must also be $0$.
+Therefore, the only solution to the equation is $k_1 = 0$,
+$k_2 = 0$, and $k_3 = 0$,
+so $\{f_1, f_2, f_3$ is linearly independent, as desired.
+
+The basis $\{(1,-2,0), (1,1,1), (0,1,-3)\}$ is a basis for $\real ^3$
+with dual basis $\{f_1, f_2, f_3\}$.
+It generates $\real ^3$ and is linearly independent by the argument above.
+\bigskip
+\item{3.1.4.}
+
+We have three cases: type $1$ matrices,
+type $2$ matrices, and type $3$ matrices.
+
+Let $E$ be an $n \times n$ type $1$ matrix, that is, let $E = (a_{ij})$,
+where there are two integers $k$ and $\ell$ such that $1 \le k,\ell \le n$,
+$k \ne \ell$, $a_{kk} = 0$, $a_{\ell \ell} = 0$,
+$a_{ii} = 1$ if $i \ne k$ and $i \ne \ell$,
+$a_{k \ell} = 1$, $a_{\ell k} = 1$,
+and $a_{ij} = 0$ for any cases not covered above.
+By definition, $E$ can be obtained by switching rows $k$ and $\ell$ of $I_n$.
+Notice that $E$ can also be obtained by switching
+columns $k$ and $\ell$ of $I_n$.
+
+Let $E$ be an $n \times n$ type $2$ matrix, that is, let $E = (a_{ij})$,
+where there is an integer $k$ and a scalar $c$ such that $1 \le k \le n$,
+$a_{kk} = c$, $a_{ii} = 1$ if $i \ne k$, and $a_{ij} = 0$ if $i \ne j$.
+By definition, $E$ can be obtained by
+multiplying the $k$th row of $I_n$ by $c$.
+Notice that $E$ can also be obtained by
+multiplying the $k$th column of $I_n$ by $c$.
+
+Let $E$ be an $n \times n$ type $3$ matrix, that is, let $E = (a_{ij})$,
+where there are integers $k$ and $\ell$ and a scalar $c$ such that
+$1 \le k,\ell \le n$, $k \ne \ell$, $a_{ii} = 1$ for all $i$,
+$a_{k \ell} = c$, and $a_{ij} = 0$ if $i \ne j$ and $(i,j) \ne (k,\ell)$.
+By definition, $E$ can be obtained by adding
+$c$ times the $\ell$th row to the $k$th row.
+Notice that we can also obtain $E$ by adding
+$c$ times the $k$th column to the $\ell$th column.
+\bigskip
+\item{3.1.5.}
+
+We have three cases: type $1$ matrices,
+type $2$ matrices, and type $3$ matrices.
+If $E$ is a type $1$ or $2$ matrix,
+then $E = E^t$, so clearly $E^t$ is an elementary matrix.
+Similarly, if $E^t$ is a type $1$ or $2$ matrix,
+then $E = E^t$, so $E$ is an elementary matrix.
+
+Let $E$ be an $n \times n$ type $3$ matrix, that is, let $E = (a_{ij})$,
+where there are integers $k$ and $\ell$ and a scalar $c$ such that
+$1 \le k,\ell \le n$, $k \ne \ell$, $a_{ii} = 1$ for all $i$,
+$a_{k \ell} = c$, and $a_{ij} = 0$ if $i \ne j$ and $(i,j) \ne (k,\ell)$.
+By definition, $E$ can be obtained by adding
+$c$ times the $\ell$th row to the $k$th row.
+By definition, $E^t = (b_{ij})$, where $b_{ii} = 1$ for all $i$,
+$b_{\ell k} = c$, and $b_{ij} = 0$ if $i \ne j$ and $(i,j) \ne (\ell, k)$
+for the same $k$, $\ell$, and $c$ as above.
+Notice that we can obtain $E^t$ by adding
+$c$ times the $k$th row to the $\ell$th row.
+
+Let $E^t$ be an $n \times n$ type $3$ elementary matrix.
+By the same argument, $E$ is a type $3$ elementary matrix.
+\bigskip
+\item{3.1.6.}
+
+Assume that $A$ and $B$ are $m \times n$ matrices
+and that $B$ can be obtained from $A$ by an elementary row operation.
+We have three cases: a type $1$ operation, a type $2$ operation,
+and a type $3$ operation.
+
+If $B$ can be obtained from $A$ by a type $1$ operation,
+then there are integers $k$ and $\ell$ such that
+$1 \le k,\ell \le m$, $k \ne \ell$,
+and switching the $k$th and $\ell$th rows of $A$ yields $B$.
+Since the $k$th row of $A$ is the $k$th column of $A^t$,
+the $\ell$th row of $A$ is the $\ell$th column of $A^t$,
+the $k$th row of $B$ is the $k$th column of $B^t$,
+and the $\ell$th row of $B$ is the $\ell$th column of $B^t$,
+it is clear that switching the $k$th and $\ell$th rows of $A^t$ yields $B^t$.
+
+If $B$ can be obtained from $A$ by a type $2$ operation,
+then there is an integer $k$ and a scalar $c$ such that $1 \le k \le m$
+and multiplying the $k$th row of $A$ by $c$ yields $B$.
+Since the $k$th row of $A$ is the $k$th column of $A^t$,
+and the $k$th row of $B$ is the $k$th column of $B^t$,
+we can multiply the $k$th column of $A^t$ by $c$ to obtain $B^t$.
+
+If $B$ can be obtained from $A$ by a type $3$ operation,
+then there are integers $k$ and $\ell$ and a scalar $c$ such that
+$1 \le k,\ell \le m$, $k \ne \ell$, and
+adding $c$ times the $\ell$th row to the $k$th row of $A$ yields $B$.
+Since the $k$th row of $A$ is the $k$th column of $A^t$,
+the $\ell$th row of $A$ is the $\ell$th column of $A^t$,
+the $k$th row of $B$ is the $k$th column of $B^t$,
+and the $\ell$th row of $B$ is the $\ell$th column of $B^t$,
+we can add $c$ times the $\ell$th column
+to the $k$th column of $A^t$ to obtain $B^t$.
+
+By the same argument, if $B$ can be obtained from $A$
+by an elementary column operation,
+then $B^t$ can be obtained from $A$ by an elementary row operation.
+\item{3.1.7.}
+
+Let $A$ be an $m \times n$ matrix and
+let $E$ be an $m \times m$ elementary matrix.
+We will focus on the first column $v$ of $A$
+and the first column $Ev$ of $EA$.
+Our arguments will be identical for the other columns,
+establishing the property for all columns of $A$.
+
+If $E$ is a type $1$ matrix,
+then there are integers $k$ and $\ell$ such that $1 \le k,\ell \le m$
+and $E$ is obtained from $I_m$ by swapping the $k$th and $\ell$th rows.
+All other rows remain identical to those of the identity matrix.
+All entries of $Ev$ except for the $k$th entry and the $\ell$th entry
+are therefore identical to those of $v$,
+while the $k$th entry of $Ev$ equals the $\ell$th entry of $v$
+and the $\ell$th entry of $Ev$ equals the $k$th entry of $v$.
+We can therefore obtain $Ev$ by swapping
+the $k$th and $\ell$th entries of $v$.
+
+If $E$ is a type $2$ matrix,
+then there is an integer $k$ and a scalar $c$ such that
+such that $E$ can be obtained from $I_m$ by multiplying
+the $k$th row by $c$.
+Notice that all entries of $Ev$ except for the $k$th entry
+are equal to the corresponding entries of $v$,
+while the $k$th entry is multiplied by $c$.
+We can therefore obtain $Ev$ from $v$
+by multiplying the $k$th entry by $c$.
+
+If $E$ is a type $3$ matrix,
+then there are integers $k$ and $\ell$ and a scalar $c$ such that
+$E$ can be obtained by adding $c$ times the $\ell$th row of $I_m$
+to the $k$th row of $I_m$.
+All entries of $Ev$ are therefore identical to the corresponding entries
+of $v$ except for the $k$th entry,
+which is the $k$th entry of $v$ added to $c$ times the $\ell$th entry of $v$.
+We can therefore obtain $Ev$ from $v$ by
+adding $c$ times the $\ell$th entry of $v$.
+
+Since the property holds for all types of elementary matrices
+when multiplied by column vectors,
+it also holds for elementary matrices when multiplying by matrices.
+By an analogous argument,
+the property also holds for elementary column operations.
+\bye
