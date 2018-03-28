@@ -1,0 +1,54 @@
+\def\real{{\bf R}}
+\centerline{Steve Hsu\hfill homework 6}
+\item{3.2.6.} a.
+
+Let $\beta = \{1, x, x^2\}$. Then
+$$[T]_\beta = \pmatrix{ -1 & 2 & 2\cr 0 & -1 & 4\cr 0 & 0 & -1\cr }$$
+and
+$$[T^{-1}]_\beta = \pmatrix{ -1 & -2 & -10\cr 0 & -1 & -4\cr 0 & 0 & -1\cr }$$
+so $T^{-1}(f(x)) = -5f''(x) - 2f'(x) - f(x)$.
+\bigskip
+\item{3.3.2.} b.
+
+The solution set is $\{(l,2,3)c : c \in \real\}$.
+It has dimension $1$.
+A basis for this set is $\{(1,2,3)\}$.
+\bigskip
+\item{3.3.3.} b.
+
+One solution is $(1,1,1)$.
+Therefore, the solution set is $\{(1,1,1) + (1,2,3)c : c \in \real\}$.
+\bigskip
+\item{3.4.5.}
+
+$$A = \pmatrix{ 1 & 0 & 2 & 1 & 4\cr -1 & -1 & 3 & -2 & -7\cr 3 & 1 & 1 & 0 & -9\cr}$$
+\bigskip
+\item{4.1.3.} a.
+
+$$\det \pmatrix{ -1+i & 1-4i\cr 3+2i & 2-3i\cr } =
+(-1 + i)(2 - 3i) - (1 - 4i)(3 + 2i) = (1 + 5i) - (11 - 10i) =
+-10 + 15i$$
+\bigskip
+\item{4.1.5.}
+
+Let $a,b,c,d$ be such that $A = \pmatrix{ a & b\cr c & d\cr}$.
+Then $\det A = ad - bc$,
+$B = \pmatrix{ c & d\cr a & b}$
+and $\det B = bc - ad = -(ad - bc) = -\det A$.
+\bigskip
+\item{3.4.6.}
+
+Let $a$ and $b$ be such that $A = \pmatrix{ a & b\cr a & b\cr}$.
+Then $\det A = ab - ab = 0$.
+\bigskip
+\item{3.4.9.}
+
+Let $a,b,c,d,e,f,g,h$ be such that $A = \pmatrix{ a & b\cr c & d\cr}$ and
+$B = \pmatrix{ e & f\cr g & h\cr}$.
+Then $AB = \pmatrix{ ae+bg & af+bh\cr ce+dg & cf+dh\cr}$,
+$\det A = ad - bc$, $\det b = eh - fg$, and
+$\det (AB) = (ae + bg)(cf + dh) - (af + bh)(ce + dg) =
+acef + adeh + bcfg + bdgh - acef - adfg - bceh - bdgh =
+adeh + bcfg - adfg - bceh = ad(eh - fg) + bc(fg - eh) =
+(ad - bc)(eh - fg) = (\det A) (\det B)$.
+\bye
