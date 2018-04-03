@@ -1,0 +1,140 @@
+\def\complex{{\bf C}}
+\centerline{Steve Hsu\hfill homework 7}
+\item{4.2.7.}
+
+$$\eqalign{\det \pmatrix{0 & 1 & 2\cr -1 & 0 & -3\cr 2 & 3 & 0\cr } &=
+- (-1)((1)(0) - (2)(3)) + 0((0)(0) - (2)(2)) - (-3)((0)(3) - (1)(2))\cr
+&= 1(-6) + 0 + 3(-2) = -6 -6 = -12\cr}$$
+\bigskip
+\item{4.2.18}
+
+$$\eqalign{\det \pmatrix{ 1 & -2 & 3\cr -1 & 2 & -5\cr 3 & -1 & 2\cr } &=
+1((2)(2) - (-5)(-1)) - (-2)((-1)(2) - (-5)(3)) + 3((-1)(-1) - (2)(3))\cr
+&= 1(-1) + 2(13) + 3(-5) = 10\cr}$$
+\bigskip
+\item{4.2.20.}
+
+$$\eqalign{\det \pmatrix{ -1 & 2+i & 3\cr 1-i & i & 1\cr 3i & 2 & -1+i\cr } &=
+-1((i)(-1+i) - (1)(2)) - (2+i)((1-i)(-1+i) - (1)(3i))\cr
+&+ 3((1-i)(2) - (i)(3i)) = -1(-i - 3) - (2 + i)(-i) + 3(5 - 2i)\cr
+&= i + 3 + 2i - 1 + 15 - 6i =
+17 - 3i\cr}$$
+\bigskip
+\item{4.3.15.}
+
+Since $A$ and $B$ are similar, we have that
+there is an invertible matrix $Q$ such that $B = Q^{-1} A Q$.
+Therefore, $\det B = \det (Q^{-1} A Q) =
+\det Q^{-1} \det A \det Q = (1 / \det Q) \det A \det Q = \det A$,
+as desired.
+\bigskip
+\item{4.3.21.}
+
+\proclaim Lemma (exercise 20).
+$\det \left( {A \atop O} {B \atop I} \right) = \det A$.
+
+Compute the determinants by cofactor expansion.
+Notice that choosing the entries along the diagonal in the block
+containing the identity matrix is the only way to obtain nonzero terms.
+The desired result follows from continuing the cofactor expansion.
+\medskip
+$\det M = \det \left( {A \atop O} {B \atop C} \right) =
+\det \left( {A \atop O} {O \atop I} \right)
+\left( {I \atop O} {A^{-1} B \atop C} \right) = \det A \det C$
+\bigskip
+\item{4.3.24.}
+
+$$\det A = t^n + \sum _{i=0} ^{n-1} a_i t^i$$
+by cofactor expansion with respect to the last column
+\bigskip
+\item{5.1.3.} c.
+
+The eigenvalues of $\left( {i \atop 2} {1 \atop -i} \right)$ are
+$1$ and $-1$.
+The corresponding eigenvectors are $1 \choose 1-i$ and $-1 \choose 1+i$.
+These eigenvectors form a basis for $\complex ^2$.
+Then $Q = \left( {1 \atop 1-i} {-1 \atop 1+i} \right)$ and
+$D = \left( {1 \atop 0} {0 \atop -1} \right)$.
+\bigskip
+\item{5.1.4.} b.
+
+$T$ has eigenvalues $-1$, $1$, and $2$ with eigenvectors
+$(1,2,0)$, $(-1,1,1)$, and $(-2,0,1)$, respectively.
+These form the basis $\beta = \{(1,2,0), (-1,1,1), (-2,0,1)\}$.
+\medskip
+\item{} h.
+
+$T$ has an eigenvalue $1$ with eigenvectors
+$\left( {0 \atop 1} {0 \atop 0} \right)$,
+$\left( {0 \atop 0} {1 \atop 0} \right)$, and
+$\left( {1 \atop 0} {0 \atop 1} \right)$.
+It has eigenvalue $-1$ with eigenvector
+$\left( {-1 \atop 0} {0 \atop 1} \right)$.
+These give the basis $\beta = \{ \left( {0 \atop 1} {0 \atop 0} \right),
+\left( {0 \atop 0} {1 \atop 0} \right), \left( {1 \atop 0} {0 \atop 1} \right),
+\left( {-1 \atop 0} {0 \atop 1} \right)\}$.
+\bigskip
+\item{5.1.8.} a.
+
+For the forward direction, assume that $T$ is an invertible linear operator.
+Since $T$ is invertible, we have that $N(T) = \{0\}$, that is,
+there is no nonzero vector $v \in V$ such that $Tv = 0$.
+Therefore, $0$ is not an eigenvalue of $T$.
+
+For the backward direction, assume that $0$
+is not an eigenvalue of $T$.
+Then there is no nonzero vector $v \in V$ such that $Tv = 0$, that is,
+$N(T) = \{0\}$.
+Since the nullspace of $T$ is $\{0\}$, $T$ is invertible.
+\medskip
+\item{} b.
+
+For the forward direction, assume that $\lambda$
+is an eigenvalue of $T$.
+Then there is a vector $v \in V$ such that $Tv = \lambda v$.
+Applying $T^{-1}$ to both sides of the equation,
+we have that $v = \lambda T^{-1} v$.
+Rearranging, we have that $\lambda ^{-1} v = T^{-1} v$,
+so $\lambda ^{-1}$ is an eigenvalue of $T^{-1}$.
+
+The backward direction is the same as the forward direction.
+Take $U = T^{-1}$ and $\mu = \lambda ^{-1}$
+and apply the result from the forward direction.
+\medskip
+\item{} c.
+
+Let $A$ be an $n \times n$ matrix.
+Then $A$ is invertible if and only if $0$ is not an eigenvalue of $A$.
+
+Let $A$ be an invertible $n \times n$ matrix.
+Then $\lambda$ is an eigenvalue of $A$ if and only if
+$\lambda ^{-1}$ is an eigenvalue of $A^{-1}$.
+
+The proofs are the same as for parts (a) and (b),
+with left multiplication by matrices instead of application of linear operators.
+\bigskip
+\item{5.1.11.} a.
+
+Assume that $A$ is similar to $\lambda I$, that is,
+$A = Q^{-1} (\lambda I) Q$ for some invertible matrix $Q$.
+Notice that $A = Q^{-1} \lambda I Q = \lambda Q^{-1} I Q =
+\lambda Q^{-1} Q = \lambda I$, as desired.
+\medskip
+\item. b.
+Let $A$ be a diagonalizable matrix with only one eigenvalue.
+Let $\lambda$ be this eigenvalue.
+Then $A$ is similar to $\lambda I$
+by the definition of diagonalizability of matrices.
+By part (a), we have that $A = \lambda I$,
+so $A$ is a scalar matrix, as desired.
+\bigskip
+\item{5.1.14.}
+
+Notice that by cofactor expansion,
+$\det M = \det M^t$ for any $n \times n$ matrix $M$.
+Also notice that since $\lambda I$ is a diagonal matrix,
+$(A - \lambda I)^t = A^t - \lambda I$.
+Therefore, $p_A(\lambda) = \det (A - \lambda I) =
+\det (A - \lambda I)^t = \det (A^t - \lambda I) =
+p_{A^t}(\lambda)$, as desired.
+\bye
