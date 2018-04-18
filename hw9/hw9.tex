@@ -1,143 +1,95 @@
-\def\twomatrix#1#2#3#4{\left( {#1 \atop #2} {#3 \atop #4} \right)}
+\def\textspan{\hbox{span}}
+\def\rank{\hbox{rank}}
+\def\nullity{\hbox{nullity}}
 \centerline{Steve Hsu\hfill homework 9}
-\item{5.2.2.} b. diagonalizable
+\item{7.1.2.} d.
 
-$D = \twomatrix {-2} 0 0 4$ and $Q = \twomatrix 1 {-1} 1 1$
-\medskip
-\item{} d. diagonalizable
-
-$D = \pmatrix{ -1 & 0 & 0\cr 0 & 3 & 0\cr 0 & 0 & 3\cr}$
-and $Q = \pmatrix{ 2 & 1 & 0\cr 4 & 1 & 0\cr 3 & 0 & 1\cr }$
-\medskip
-\item{} f. not diagonalizable
+$$K_2 = \textspan \left\{  \pmatrix{ 1\cr 0\cr 0\cr 0\cr }, \pmatrix{ 0\cr 1\cr 0\cr -1\cr } \right\} \qquad
+K_3 = \textspan \left\{ \pmatrix{ 1\cr 1\cr 1\cr 0\cr }, \pmatrix{ 0\cr 0\cr 0\cr 1\cr } \right\} \qquad
+J = \pmatrix{
+2 & 1 & 0 & 0\cr
+0 & 2 & 0 & 0\cr
+0 & 0 & 3 & 0\cr
+0 & 0 & 0 & 3\cr
+}$$
 \bigskip
-\item{5.2.12.} a.
+\item{7.1.3.} a.
 
-We will show that a vector $v \in V$
-is in the eigenspace of $T$ corresponding to $\lambda$ if and only if
-$v$ is in the eigenspace of $T^{-1}$ corresponding to $\lambda ^{-1}$.
-By definition, $v$ is in the eigenspace of $T$ corresponding to $\lambda$
-if and only if $Tv = \lambda v$.
-If $Tv = \lambda v$, then applying $T^{-1}$ to both sides
-and multiplying by $\lambda ^{-1}$,
-we have that $\lambda ^{-1} v = T^{-1} v$.
-Similarly, if $T^{-1} v = \lambda ^{-1} v$, then $\lambda v = Tv$.
-By definition, $T^{-1} v = \lambda ^{-1} v$ if and only if
-$v$ is in the eigenspace of $T^{-1}$ corresponding to $\lambda ^{-1}$.
+$$K_2 = \textspan \left\{ \pmatrix{ -1\cr 0\cr 0\cr }, \pmatrix{ 0\cr 1\cr 0\cr },
+\pmatrix{ 0\cr 0\cr -1/2\cr } \right\} \qquad
+J = \pmatrix{
+2 & 1 & 0\cr
+0 & 2 & 1\cr
+0 & 0 & 2\cr
+}$$
+\bigskip
+\item{7.2.3.} a.
+
+$p_T(t) = (2 - t)^5 (3 - t)^2$
 \medskip
 \item{} b.
 
-Assume that $T$ is diagonalizable.
-Then there is a basis $\beta = \{v_1, \ldots, v_n\}$ for $V$
-and scalars $\lambda _1, \ldots, \lambda _n$ such that
-$T v_i = \lambda _i$ for $1 \le i \le n$.
-By part (a), we have that $T^{-1} v_i = \lambda _i ^{-1}$
-so we can express $T^{-1}$ in diagonal form.
-\bigskip
-\item{5.4.2.} a. $T$-invariant
+for $\lambda = 2$:
 
-If $f(x) \in W$, then $f$ has degree at most $2$,
-so $f'$ has degree at most $1$.
-\medskip
-\item{} b. not $T$-invariant
+$\matrix{
+\cdot & \cdot\cr
+\cdot & \cdot\cr
+\cdot & \cr
+}$
 
-Notice that $f(x) = x^2$ is in $W$, but $x f(x) = x^3$ is not.
-\medskip
-\item{} c. $T$-invariant
+for $\lambda = 3$:
 
-If $(t, t, t) \in W$, then $T(t, t, t) = (3t, 3t, 3t) \in W$.
-\medskip
-\item{} d. $T$-invariant
-
-Since $\int _0 ^1 f(x) dx$ is a constant, $Tf(t) = b$ for some $b$.
-\medskip
-\item{} e. $T$-invariant
-
-If $\twomatrix a b b a \in W$, then
-$T \twomatrix a b b a = \twomatrix b a a b \in W$.
-\bigskip
-\item{5.4.3.} a.
-
-We will first show that $\{0\}$ is $T$-invariant.
-Let $v \in \{0\}$.
-We know that $v = 0$.
-By linearity, $Tv = T0 = 0$, so $Tv \in \{0\}$.
-
-We will now show that $V$ is $T$-invariant.
-Let $v \in V$.
-Since $T$ is a linear operator, $Tv \in V$.
-\medskip
-\item{} b.
-
-We will first show that $N(T)$ is $T$-invariant.
-Let $v \in N(T)$.
-By definition, $Tv = 0$ and $0 \in N(T)$ since $N(T)$ is a subspace of $V$,
-so $Tv \in N(T)$.
-
-We will now show that $R(T)$ is $T$-invariant.
-Let $v \in R(T)$.
-Since $v \in V$, by definition, $Tv \in R(T)$.
+$\matrix{ \cdot & \cdot\cr }$
 \medskip
 \item{} c.
 
-Let $v \in E_\lambda$ for some eigenvalue $\lambda$ of $T$.
-By definition, $Tv = \lambda v$.
-Since $E_\lambda$ is a subspace of $V$,
-it is closed under scalar multiplication,
-so $\lambda v = Tv \in E_\lambda$.
+The Jordan blocks for $K_3$ are $1 \times 1$, so $K_3 = E_3$.
+\medskip
+\item{} d.
+
+For $K_2$, the largest Jordan block is $3 \times 3$,
+so $K_2 = N((T - 2I)^3)$.
+For $K_3$, the largest Jordan block is $1 \times 1$,
+so $K_3 = N(T - 3I)$.
+\medskip
+\item{} e.
+
+for $U_1 = T - 2I$ restricted to $K_2$:
+\smallskip
+\itemitem{i.} $\rank U_1 = 3$
+\itemitem{ii.} $\rank U_1^2 = 1$
+\itemitem{iii.} $\nullity U_1 = 2$
+\itemitem{iv.} $\nullity U_1^2 = 4$
+\smallskip
+for $U_2 = T - 3I$ restricted to $K_3$:
+\itemitem{i.} $\rank U_2 = 2$
+\itemitem{ii.} $\rank U_2^2 = 2$
+\itemitem{iii.} $\nullity U_2 = 0$
+\itemitem{iv.} $\nullity U_2^2 = 0$
 \bigskip
-\item{5.4.6.} d.
+\item{7.2.12.}
 
-$\beta = \hbox{span} \left\{ \twomatrix 0 1 1 0, \twomatrix 1 2 1 2 \right\}$
-\bigskip
-\item{5.4.9.} d.
+Let $A$ be an $n \times n$ upper triangular matrix
+with each diagonal entry equal to $0$.
+We will show that $A^n = O$.
 
-$z = \twomatrix 0 1 1 0$, $Tz = \twomatrix 1 2 1 2$, and $T^2 z = 3 6 3 6$,
-so $-3Tz + T^2 z = 0$ and $f(t) = (-1)^2 (-3t + t^2) = t^2 - 3t$.
+\proclaim Lemma. If $v \in F^n$ has only zeroes after the $k+1$th entry,
+then $Av$ has only zeroes after the $k$th entry.
 
-$f(t) = \det [T]_\beta = \det \twomatrix 0 1 0 3 = -t(3 - t) = t^2 - 3t$
-\bigskip
-\item{5.4.10.} d.
-
-Let $\beta = \left\{ \twomatrix 1 0 0 0, \twomatrix 0 1 0 0,
-\twomatrix 0 0 1 0, \twomatrix 0 0 0 1 \right\}$.
-Then
-$$[T]_\beta = \pmatrix{
-1 & 1 & 0 & 0\cr
-2 & 2 & 0 & 0\cr
-0 & 0 & 1 & 1\cr
-0 & 0 & 2 & 2\cr
-}$$
-so $f(t) = \det [T]_\beta - t I = (\det \twomatrix {1 - t} 2 1 {2 - t})^2 =
-((1 - t)(2 - t) - 2)^2 = (t^2 - 3t)^2$.
-Notice that $(t^2 - 3t) \vert (t^2 - 3t)^2$.
-\bigskip
-\item{5.4.19.}
-
-For the base case, we have that $A_1 = (-a_0)$.
-Clearly, the characteristic polynomial of $A_1$ is
-$f_1(t) = -a_0 - t = (-1)^1 (a_0 + t^1)$.
-For the inductive step, assume that
-the characteristic polynomial of $A_k$ is
-$f_k(t) = (-1)^k (a_0 + a_1 t + \cdots + a_{k-1} t^{k-1} + t^k)$.
-Let $B_k = A_k - tI$.
-We have that
-$$f_{k+1}(t) = \det B_k = \det \pmatrix{
--t & 0 & \cdots & 0 & -a_0\cr
-1 & -t & \cdots & 0 & -a_1\cr
-0 & 1 & \cdots & 0 & -a_2\cr
-\vdots & \vdots & & \vdots & \vdots\cr
-0 & 0 & \cdots & -t & -a_{k-1}\cr
-0 & 0 & \cdots & 1 & -t - a_k\cr
-}$$
-so $f_{k+1}(t) = -t \det B_{11} + (-1)^k (-a_0) B_{1(k+1)}$.
-Notice that $A_{11}$ has the same structure as $B_k$,
-so by the induction hypothesis, we have that
-$\det B_{11} = (-1)^k (a_1 + a_2 t + \cdots + a_k t^{k-1} + t^k)$.
-Additionally, $B_{1(k+1)}$ is an upper triangular matrix with only $1$s
-on the diagonal, so $\det B_{1(k+1)} = 1$.
-Substituting, we have that
-$f_{k+1}(t) = -t (-1)^k (a_1 + a_2 t + \cdots + a_k t^{k-1} + t^k) + (-1)^k (-a_0) =
-(-1)^{k+1} (a_1 t + a_2 t^2 + \cdots + a_k t^k + t^{k+1}) + (-1)^{k+1} a_0 =
-(-1)^{k+1} (a_0 + a_1 t + \cdots + a_k t_k + t_{k+1})$, as desired.
+Using the row-column rule to multiply $A$ and $v$,
+it follows that when computing the $\ell$th entry of $Av$, where $\ell \ge k$,
+since $A$ is upper triangular, we have that $a_{\ell j} = 0$ for $j < \ell$
+and $a_{\ell \ell} = 0$ since $A$ is zero on the diagonal.
+Additionally, by our assumption, $v_j = 0$ for $j > \ell \ge k$,
+so the $\ell$th entry of $Av$ is $0$, as desired.
+\medskip
+Notice that the bottom row of $A$ has $0$ in every entry.
+For each column $v_i$ of $A$, we therefore have that $v_i$
+has only zeroes after the $n-1$th entry.
+By the lemma, $Av_i$ has only zeroes after the $n-2$th entry,
+$A^2 v_i$ has only zeroes after the $n-3$th entry, and so on.
+Inductively, $A^{n-1} v_i$ has only zeroes after the $0$th entry,
+than is, $A^{n-1} v_i = 0$.
+Since $A = (v_1 v_2 \cdots v_n)$, it follows that
+$A^{n-1} A = A^n = O$, as desired.
 \bye
