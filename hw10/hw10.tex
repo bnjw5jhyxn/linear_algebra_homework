@@ -1,0 +1,348 @@
+\def\inpr#1#2{\left\langle#1,#2\right\rangle}
+\def\eval#1=#2#3{\vert_{#1=#2}^#3}
+\def\parenint#1#2#3{\left(\int _#1^#2#3\right)}
+\def\norm#1{\Vert#1\Vert}
+\def\abs#1{\vert#1\vert}
+\def\tr{\hbox{tr}}
+\def\half{\textstyle{1 \over 2}}
+\def\third{\textstyle{1 \over 3}}
+\def\fourth{\textstyle{1 \over 4}}
+\def\fraction#1#2{\textstyle{#1 \over #2}}
+\centerline{Steve Hsu\hfill homework 10}
+\item{6.1.3.}
+
+$$\eqalign{
+\inpr f g &= \int _0 ^1 f(t) g(t) dt
+= \int _0 ^1 t e^t dt
+= t e^t \eval t=0 1 - \int _0 ^1 e^t dt\cr
+&= e - e^t \eval t=0 1
+= e - (e - 1)
+= 1\cr
+}$$
+
+$$\eqalign{
+\norm f &= \sqrt{\inpr f f}
+= \sqrt{\int _0 ^1 f(t) f(t) dt}
+= \sqrt{\int _0 ^1 t^2 dt}\cr
+&= \sqrt{\third t^3 \eval t=0 1}
+= \sqrt{\third - 0}
+= \sqrt{\third}
+}$$
+
+$$\eqalign{
+\norm g &= \sqrt{\inpr g g}
+= \sqrt{\int _0 ^1 g(t) g(t) dt}\cr
+&= \sqrt{\int _0 ^1 e^{2t} dt}
+= \sqrt{\half e^{2t} \eval t=0 1}
+= \sqrt{\half (e^2 - 1)}
+}$$
+
+$$\eqalign{
+\norm{f + g} &= \sqrt{\inpr{f + g}{f + g}}
+= \sqrt{\int _0 ^1 (f + g)(t) (f + g)(t) dt}
+= \sqrt{\int _0 ^1 (t + e^t)^2 dt}\cr
+&= \sqrt{\int _0 ^1 (t^2 + 2te^t + e^2t) dt}
+= \sqrt{(\third t^3 + 2(te^t - e^t) + \half e^{2t}) \eval t=0 1}\cr
+&= \sqrt{(\third + 2(e - e) + \half e^2) - (-2 + \half)}
+= \sqrt{\fraction {11} 6 + \half e^2}\cr
+}$$
+
+$$\eqalign{
+\abs{\inpr f g} &= \abs{1}
+= 1
+= \sqrt 1
+= \sqrt{\fraction 1 6 6}\cr
+&< \sqrt{\fraction 1 6 (e^2 - 1)}
+= \sqrt{\third \half (e^2 - 1)}
+= \sqrt{\third} \sqrt{\half (e^2 - 1)}
+= \norm f \norm g\cr
+}$$
+
+$$\eqalign{
+\norm{f + g} &= \sqrt{\fraction{11} 6 + \half e^2}
+= \sqrt{\third + 2 - \half + \half e^2}
+= \sqrt{\third + 2 + \half (e^2 - 1)}\cr
+&< \sqrt{\third + 2\sqrt{(e^2 - 1) / 6} + \half (e^2 - 1)}
+= \sqrt{(\sqrt{\third} + \sqrt{\half (e^2 - 1)})^2}\cr
+&= \sqrt{\third} + \sqrt{\half (e^2 - 1)}
+= \norm f + \norm g\cr
+}$$
+\item{6.1.8.} a.
+
+This definition violates the requirement that
+$\inpr x x > 0$ whenever $x \ne 0$.
+For example, $\inpr{(1,2)}{(1,2)} = 1 - 4 = -3$.
+\medskip
+\item{} b.
+
+This definition violates the requirement that
+$\inpr{cx} y = c \inpr x y$.
+For example,
+$$\eqalign{
+\inpr{2 \pmatrix{1 & 1\cr 1 & 1\cr}}{\pmatrix{1 & 1\cr 1 & 1\cr}} &=
+\inpr{\pmatrix{2 & 2\cr 2 & 2\cr}}{\pmatrix{1 & 1\cr 1 & 1\cr}}
+= \tr \pmatrix{3 & 3\cr 3 & 3\cr}
+= 6\cr
+&\ne 8
+= 2 \tr \pmatrix{2 & 2\cr 2 & 2\cr}
+= 2 \inpr{\pmatrix{1 & 1\cr 1 & 1\cr}}{\pmatrix{1 & 1\cr 1 & 1\cr}}\cr
+}$$
+\medskip
+\item{} c.
+
+This definition violates the requirement that
+$\inpr x x > 0$ whenever $x \ne 0$.
+For example, $\inpr 1 1 = \int _0 ^1 0(1) dt = 0$.
+\hfil\eject
+\item{6.1.10.}
+
+$$\eqalign{
+\norm{x + y}^2 &= \sqrt{\inpr{x + y}{x + y}}^2
+= \inpr{x + y}{x + y}
+= \inpr x {x + y} + \inpr y {x + y}\cr
+&= \overline{\inpr{x + y} x} + \overline{\inpr{x + y} y}
+= \overline{\inpr x x + \inpr y x} + \overline{\inpr x y + \inpr y y}
+= \inpr x x + \inpr x y + \inpr y x + \inpr y y\cr
+&= \inpr x x + 0 + 0 + \inpr y y
+= \inpr x x + \inpr y y
+= \sqrt{\inpr x x}^2 + \sqrt{\inpr y y}^2
+= \norm x^2 + \norm y^2\cr
+}$$
+
+In order to prove the Pythagorean Theorem,
+we want to show that if $a$, $b$, and $c$ are
+the side lengths of a right triangle with $c$ as the length of the hypotenuse,
+then $a^2 + b^2 = c^2$.
+Let $x$ be a vector along one leg of the triangle
+and let $y$ be a vector along the other edge.
+Notice that $x + y$ is a vector along the hypotenuse of the triangle.
+We therefore have that $\norm x = a$, $\norm y = b$, and $\norm{x + y} = c$.
+By the equality above, $\norm x^2 + \norm y^2 = \norm{x + y}^2$.
+Substituting, we have that $a^2 + b^2 = c^2$, as desired.
+\bigskip
+\item{6.1.15.} a.
+
+$(\Rightarrow)$ Assume that $\abs{\inpr x y} = \norm x \norm y$.
+If $y = 0$, then $x = 0y$ and the desired result follows.
+Otherwise, $y \ne 0$.
+Take $a = \inpr x y / \norm y^2$.
+Notice that $\inpr z y = \inpr {x - ay} y = \inpr x y - a \inpr y y =
+a \norm y^2 - a \norm y^2 = 0$, so $y$ and $z$ are orthogonal.
+Additionally, $\abs a = \abs{\inpr x y} / \norm y^2 =
+\norm x \norm y / \norm y^2 = \norm x \norm y$.
+Since $x = ay + z$, we have that $\norm x^2 = \norm{ay + z}^2$.
+Since $y$ and $z$ are orthogonal, we have that
+$\norm{ay + z}^2 = \norm{ay}^2 + \norm z^2 = \abs a^2 \norm y^2 + \norm z^2$.
+Since $\norm x = \abs a \norm y$,
+we can subtract $\norm x^2$ from both sides to obtain $0 = \norm z^2$.
+We therefore have that $z = 0$.
+Since $z = x - ay = 0$, we have that $x = ay$, as desired.
+
+$(\Leftarrow)$ Assume that $x = ay$ for some scalar $a$.
+If at least one of $x$ and $y$ is zero,
+then both sides of $\abs{\inpr x y} = \norm x \norm y$ are also zero,
+so the equality holds.
+Otherwise, neither of $x$ and $y$ is zero.
+Notice that $\norm x = \norm{ay} = \sqrt{\inpr{ay}{ay}} = \sqrt{a^2 \inpr y y} =
+\abs a \sqrt{\inpr y y} = \abs a \norm y$.
+Therefore, we have that $\abs{\inpr x y} = \abs{\inpr {ay} y} =
+\abs{a \inpr y y} = \abs a \abs{\inpr y y} = \abs a \norm y^2 =
+\abs a \norm y \norm y = \norm x \norm y$, as desired.
+\medskip
+\item{} b.
+
+\proclaim Claim. If $V$ is an inner product space,
+then $\norm{x + y} = \norm x + \norm y$ if and only if
+one is a positive multiple of the other.
+
+$(\Rightarrow)$ Assume that $\norm{x + y} = \norm x + \norm y$.
+If $y = 0$, then $x = 0y$ and we have the desired result.
+Otherwise, $y \ne 0$.
+Squaring both sides, we have that
+$\norm{x + y}^2 = \norm x^2 + 2 \norm x \norm y + \norm y^2$.
+By definition of norm, we have that
+$\inpr{x + y}{x + y} = \inpr x x + \inpr y y + 2 \norm x \norm y$.
+Simplifying, we have that
+$\inpr x x + \inpr x y + \inpr y x + \inpr y y = \inpr x x + \inpr y y + 2 \norm x \norm y$.
+Cancelling, we have that
+$\inpr x y + \inpr y x = 2 \norm x \norm y$.
+By the Cauchy-Schwarz inequality, we have that
+$\inpr x y$ and $\inpr y x$ are both at most $\norm x \norm y$,
+so the equality above implies that $\inpr x y = \inpr y x = \norm x \norm y$.
+Notice that this equality implies that $\inpr x y$ and $\inpr y x$ are positive.
+By part (a), it follows that $x = ay$ for some scalar $a$.
+Since $\inpr x y = \inpr {ay} y = a \inpr y y \ge 0$, $a$ must be positive.
+
+$(\Leftarrow)$ Assume that $x = ay$ for some positive scalar $a$.
+Notice that $a = \abs a$ and $a + 1 = \abs{a + 1}$.
+Then $\norm{x + y} = \norm{ay + y} = \norm{(a + 1)y} = (a + 1)\norm y =
+a \norm y + \norm y = \norm{ay} + \norm y = \norm x + \norm y$, as desired.
+\bigskip
+\item{6.2.2.} i.
+
+$$v_1 = \sin t$$
+
+$$\eqalign{
+\norm{v_1} &= \sqrt{\inpr{v_1}{v_1}}
+= \sqrt{\inpr{\sin t}{\sin t}}
+= \sqrt{\int _0 ^\pi \sin ^2 t dt}\cr
+&= \sqrt{(t \sin ^2 t + \half t \cos 2t - \fourth \sin 2t) \eval t=0 \pi}
+= \sqrt{\half \pi}\cr
+}$$
+
+$$\eqalign{
+v_2 &= \cos t - (\inpr {\cos t} {\sin t} / \norm{v_1}^2 \sin t
+= \cos t - \fraction 2 \pi \parenint 0 \pi {{\cos t \sin t} dt} \sin t\cr
+&= \cos t - \fraction 2 \pi (\half \cos 2t) \eval t=0 \pi \sin t
+= \cos t - \fraction 2 \pi (1 - 1) \sin t
+= \cos t\cr
+}$$
+
+$$\eqalign{
+\norm{v_2} &= \sqrt{\inpr{v_2}{v_2}}
+= \sqrt{\inpr{\cos t}{\cos t}}
+= \sqrt{\int _0 ^\pi \cos ^2 t dt}\cr
+&= \sqrt{(t \cos ^2 t - \half t \cos 2t + \fourth \sin 2t) \eval t=0 \pi}
+= \sqrt{\half \pi}\cr
+}$$
+
+$$\eqalign{
+v_3 &= 1 - (\inpr 1 {\cos t} / \norm{v_1}^2) \cos t - (\inpr 1 {\sin t} / \norm{v_2}^2) \sin t\cr
+&= 1 - \fraction 2 \pi \parenint 0 \pi {\cos t dt} \cos t - \fraction 2 \pi \parenint 0 \pi {\sin t dt} \sin t\cr
+&= 1 - \fraction 2 \pi (\sin t \eval t=0 \pi) \cos t - \fraction 2 \pi (-\cos t \eval t=0 \pi) \sin t\cr
+&= 1 - \fraction 2 \pi (0 - 0) \cos t - \fraction 2 \pi (1 - (-1)) \sin t\cr
+&= 1 - \fraction 4 \pi \sin t\cr
+}$$
+
+$$\eqalign{
+\norm{v_3} &= \norm{\fraction 4 \pi (\fourth \pi - \sin t)}
+= \fraction 4 \pi \norm{\fourth \pi - \sin t}\cr
+&= \fraction 4 \pi \sqrt{\inpr{\fourth \pi - \sin t}{\fourth \pi - \sin t}}\cr
+&= \fraction 4 \pi \sqrt{\int _0 ^\pi (\sin ^2 t - \half \pi \sin t + \fraction {\pi^2} {16}) dt}\cr
+&= \fraction 4 \pi \sqrt{(t \sin ^2 t + \half t \cos 2t - \fourth \sin 2t + \half \pi \cos t + \fraction {\pi^2} {16} t) \eval t=0 \pi}\cr
+&= \fraction 4 \pi \sqrt{\half \pi - \half \pi + \fraction {\pi ^3} {16} - \half \pi}
+= \fraction 4 \pi \sqrt{\fraction {\pi^3} {16} - \half \pi}
+= \sqrt{\pi - \fraction 8 \pi}\cr
+}$$
+
+$$\eqalign{
+v_4 &= t - (\inpr t {\sin t} / \norm{v_1}^2) \sin t - (\inpr t {\cos t} \norm{v_2}^2) \cos t - (\inpr t {1 - \fraction 4 \pi \sin t} / \norm{v_3}^2)(1 - \fraction 4 \pi \sin t)\cr
+=& t - \fraction 2 \pi \parenint 0 \pi {t \sin t dt} \sin t - \fraction 2 \pi \parenint 0 \pi {t \cos t dt} \cos t - \fraction \pi {\pi ^2 - 8} \parenint 0 \pi {(t - \fraction 4 \pi t \sin t) dt}(1 - \fraction 4 \pi \sin t)\cr
+=& t - \fraction 2 \pi (-t \cos t + \sin t) \eval t=0 \pi \sin t - \fraction 2 \pi (t \sin t + \cos t) \eval t=0 \pi \cos t\cr
+&- \fraction \pi {\pi^2 - 8} (\half t^2 - \fraction 4 \pi (-t \cos t + \sin t)) \eval t=0 \pi (1 - \fraction 4 \pi \sin t)\cr
+=& t - \fraction 2 \pi (\pi - 0) \sin t - \fraction 2 \pi (-1 - 1) \cos t - \fraction \pi {\pi^2 - 8} (\half \pi^2 - 4) (1 - \fraction 4 \pi \sin t)\cr
+=& t - 2 \sin t + \fraction 4 \pi \cos t - \half \pi (1 - \fraction 4 \pi \sin t)\cr
+=& t - 2 \sin t + \fraction 4 \pi \cos t - \half \pi + 2 \sin t\cr
+=& \fraction 4 \pi \cos t + t - \half \pi\cr
+}$$
+
+$$\eqalign{
+\norm{v_4} &= \sqrt{\inpr{v_4}{v_4}}\cr
+&= \sqrt{\inpr{\fraction 4 \pi \cos t + t - \half \pi}{\fraction 4 \pi \cos t + t - \half \pi}}\cr
+&= \sqrt{\int _0 ^\pi (\fraction {16} {\pi^2} \cos ^2 t + \fraction 8 \pi t \cos t - 4 \cos t + t^2 - \pi t + \fourth \pi ^2) dt}\cr
+&= \sqrt{(\fraction 1 {\pi^2} (16 t \cos ^2 t - 8 t \cos 2t + 4 \sin 2t) + \fraction 8 \pi (t \sin t + \cos t) - 4 \sin t + \third t^3 - \half \pi t^2 + \fourth \pi ^2 t) \eval t=0 \pi}\cr
+&= \sqrt{\fraction 1 {\pi^2} (16 \pi - 8 \pi) - 8 \pi + \third \pi ^3 - \half \pi ^3 + \fourth \pi ^3 - \fraction 8 \pi}\cr
+&= \sqrt{\fraction 8 \pi - \fraction 8 \pi + \fraction 1 {12} \pi ^3 - \fraction 8 \pi}\cr
+&= \sqrt{\fraction 1 {12} \pi ^3 - \fraction 8 \pi}\cr
+}$$
+
+$$\eqalign{
+\beta &= \{ w_1, w_2, w_3, w_4 \}\cr
+&= \left\{ {v_1 \over \norm{v_1}}, {v_2 \over \norm{v_2}}, {v_3 \over \norm{v_3}}, {v_4 \over \norm{v_4}} \right\}\cr
+&= \left\{ {\sqrt 2 \sin t \over \sqrt \pi}, {\sqrt 2 \cos t \over \sqrt \pi}, {\pi - 4 \sin t \over \sqrt{\pi ^3 - 8 \pi}}, {8 \cos t + 2 \pi t + \pi ^2 \over \sqrt{\third \pi ^5 - 32 \pi}} \right\}\cr
+}$$
+
+$$\eqalign{
+\inpr{2t + 1}{w_1} &= \int _0 ^\pi (2t + 1) \sqrt{2 \over \pi} \sin t dt
+= \sqrt{2 \over \pi} \int _0 ^\pi (2t \sin t + \sin t) dt\cr
+&= \sqrt{2 \over \pi} (-2t \cos t + 2 \sin t - \cos t) \eval t=0 \pi
+= \sqrt{2 \over \pi} (2 \pi + 1 - (-1))\cr
+&= \sqrt{2 \over \pi} (2 \pi + 2)\cr
+}$$
+
+$$\eqalign{
+\inpr{2t + 1}{w_2} &= \int _0 ^\pi (2t + 1) \sqrt{2 \over \pi} \cos t dt
+= \sqrt{2 \over \pi} \int _0 ^\pi (2t \cos t + \cos t) dt\cr
+&= \sqrt{2 \over \pi} (2t \sin t + 2 \cos t + \sin t) \eval t=0 \pi
+= \sqrt{2 \over \pi} (-2 - 2)\cr
+&= -4 \sqrt{2 \over \pi}
+}$$
+
+$$\eqalign{
+\inpr{2t + 1}{w_3} &= \int _0 ^\pi (2t + 1) {1 \over \sqrt{\pi ^3 - 8 \pi}} (\pi - 4 \sin t) dt\cr
+&= {1 \over \sqrt{\pi ^3 - 8 \pi}} \int _0 ^\pi (-8t \sin t - 4 \sin t + 2 \pi t + \pi)dt \cr
+&= {1 \over \sqrt{\pi ^3 - 8 \pi}} (8t \cos t - 8 \sin t + 4 \cos t + \pi t^2 + \pi t) \eval t=0 \pi\cr
+&= {1 \over \sqrt{\pi ^3 - 8 \pi}} (-8 \pi - 4 + \pi ^3 + \pi ^2 - 4)\cr
+&= {1 \over \sqrt{\pi ^3 - 8 \pi}} (\pi ^3 + \pi ^2 - 8 \pi - 8)\cr
+}$$
+
+$$\eqalign{
+\inpr{2t + 1}{w_4} &= \int _0 ^\pi (2t + 1) {1 \over \sqrt{\third \pi ^5 - 32 \pi}}(8 \cos t + 2 \pi t - \pi ^2) dt\cr
+&= {1 \over \sqrt{\third \pi ^5 - 32 \pi}} \int _0 ^\pi (2t + 1)(8 \cos t + 2 \pi t - \pi ^2) dt\cr
+&= {1 \over \sqrt{\third \pi ^5 - 32 \pi}} \int _0 ^\pi (16 t \cos t + 8 \cos t + 4 \pi t^2 + (-2 \pi ^2 + 2\pi) t - \pi ^2) dt\cr
+&= {1 \over \sqrt{\third \pi ^5 - 32 \pi}} (16 t \sin t + 16 \cos t + 8 \sin t + \fraction 4 3 \pi t^3 + (-\pi ^2 + \pi) t^2 - \pi ^2 t) \eval t=0 \pi\cr
+&= {1 \over \sqrt{\third \pi ^5 - 32 \pi}} (-16 + \fraction 4 3 \pi ^4 - \pi ^4 + \pi ^3 - \pi ^3 - 16)\cr
+&= {1 \over \sqrt{\third \pi ^5 - 32 \pi}} (-16 + \third \pi ^4 - 16)\cr
+&= {1 \over \sqrt{\third \pi ^5 - 32 \pi}} (\third \pi ^4 - 32)\cr
+}$$
+
+$$\eqalign{
+2t + 1 =& \inpr{2t + 1}{w_1} w_1 + \inpr{2t + 1}{w_2} w_2 + \inpr{2t + 1}{w_3} w_3 + \inpr{2t + 1}{w_4} w_4\cr
+=& \sqrt{2 \over \pi} (2 \pi + 2) {\sqrt 2 \sin t \over \sqrt \pi} - 4 \sqrt{2 \over \pi}{\sqrt 2 \cos t \over \sqrt \pi} + {1 \over \sqrt{\pi ^3 - 8 \pi}} (\pi ^3 + \pi ^2 - 8 \pi - 8) {\pi - 4 \sin t \over \sqrt{\pi ^3 - 8 \pi}}\cr
+&+ {1 \over \sqrt{\third \pi ^5 - 32 \pi}} (\third \pi ^4 - 32) {8 \cos t + 2 \pi t - \pi ^2 \over \sqrt{\third \pi ^5 - 32 \pi}}\cr
+=& \fraction 2 \pi (2 \pi + 2) \sin t - 4 \fraction 2 \pi \cos t + {1 \over \pi ^3 - 8 \pi} (\pi ^3 + \pi ^2 - 8 \pi - 8) (\pi - 4 \sin t)\cr
+&+ {1 \over \third \pi ^5 - 32 \pi} (\third \pi ^4 - 32) (8 \cos t + 2 \pi t - \pi ^2)\cr
+=& (4 + \fraction 4 \pi) \sin t - \fraction 8 \pi \cos t + (1 + \fraction 1 \pi) (\pi - 4 \sin t) + \fraction 1 \pi (8 \cos t + 2 \pi t - \pi ^2)\cr
+=& (4 + \fraction 4 \pi) \sin t - \fraction 8 \pi \cos t - 4(1 + \fraction 1 \pi) \sin t + (\pi + 1) + \fraction 8 \pi \cos t + 2t - \pi\cr
+=& (\pi + 1) + 2t - \pi\cr
+=& 2t + 1\cr
+}$$
+\bigskip
+\item{6.2.15.} a.
+
+$$\eqalign{
+\inpr x y &= \inpr {\sum _{i=1} ^n \inpr x {v_i} v_i}{\sum _{j=1} ^n \inpr y {v_j} v_j}\cr
+&= \sum _i \inpr x {v_i} \inpr {v_i} {\sum _j \inpr y {v_j} v_j}\cr
+&= \sum _i \inpr x {v_i} \overline {\inpr {\sum _j \inpr y {v_j} v_j} {v_i}}\cr
+&= \sum _i \inpr x {v_i} \overline {\sum _j \inpr y {v_j} \inpr {v_j} {v_i}}\cr
+&= \sum _i \inpr x {v_i} \sum _j \overline {\inpr y {v_j}} \overline {\inpr {v_j} {v_i}}\cr
+&= \sum _i \sum _j \inpr x {v_i} \overline {\inpr y {v_j}} \overline {\inpr {v_j} {v_i}}\cr
+&= \sum _i \sum _j \inpr x {v_i} \inpr {v_j} y \inpr {v_i} {v_j}\cr
+&= \sum _i \inpr x {v_i} \inpr {v_i} y \inpr {v_i} {v_i} + \sum _i \sum _{j \ne i} \inpr x {v_i} \inpr {v_j} y \inpr {v_i} {v_j}\cr
+&= \sum _i \inpr x {v_i} \inpr {v_i} y (1) + \sum _i \sum _{j \ne i} \inpr x {v_i} \inpr {v_j} y (0)\cr
+&= \sum _i \inpr x {v_i} \overline {\inpr y {v_i}}\cr
+}$$
+\hfil\eject
+\item{} b.
+
+Since $\beta = \{v_1, v_2, \ldots, v_n\}$ is orthonormal,
+we have that $x = \sum _i \inpr x {v_i} v_i$ and
+$y = \sum _i \inpr y {v_i} v_i$.
+Therefore,
+$\phi _\beta (x) = (\inpr x {v_1}, \inpr x {v_2}, \ldots, \inpr x {v_n})$ and
+$\phi _\beta (y) = (\inpr y {v_1}, \inpr y {v_2}, \ldots, \inpr y {v_n})$.
+$$\eqalign{
+\inpr {\phi _\beta (x)} {\phi _\beta (y)}\prime &= \inpr {\pmatrix{ \inpr x {v_1}\cr \vdots\cr \inpr x {v_n}\cr }} {\pmatrix{ \inpr y {v_1}\cr \vdots\cr \inpr y {v_n}\cr }}\prime\cr
+&= \sum _i \inpr x {v_i} \overline {\inpr y {v_i}}\cr
+&= \inpr x y\cr
+}$$
+as desired.
+\bigskip
+\item{6.2.16.} a.
+
+Let $m = \dim V$.
+We can extend $S$ to an orthonormal basis $\beta$ for $V$.
+By theorem 6.6, we have that
+$x = \sum _{i=1} ^m \inpr x {v_i} v_i$.
+By exercise 6.1.10, since $\beta$ is orthonormal, we have that
+$$\norm x^2 = \sum _{i=1} ^m \norm{\inpr x {v_i} v_i}^2
+= \sum _{i=1} ^m \abs{\inpr x {v_i}}^2
+\ge \sum _{i=1} ^n \abs{\inpr x {v_i}}^2$$
+as desired.
+\medskip
+\item{} b.
+
+If $x$ is in the span of $S$, then $\inpr x {v_i} = 0$ when $x > n$,
+so the later terms of the sum above vanish,
+giving the desired result.
+\bye
